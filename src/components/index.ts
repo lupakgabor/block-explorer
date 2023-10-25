@@ -1,3 +1,4 @@
 export * from './BasePage';
-export * from './NavBar';
+export * from './Navbar';
 export * from './SearchBox';
+export * from './Container';
