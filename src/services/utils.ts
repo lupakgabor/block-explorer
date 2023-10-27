@@ -11,3 +11,7 @@ export const formatHash = (hash:string | undefined) => {
     }
     return `${hash.slice(0, 8)}...`;
 }
+
+export const getBlockNumbers = (startingBlock: number, numberOfBlocks: number) => {
+   return [...Array(numberOfBlocks)].map((_, idx) => startingBlock - idx - 1)
+}
