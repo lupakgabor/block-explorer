@@ -7,9 +7,10 @@ import {
     Collapse,
 } from "@material-tailwind/react";
 import { Bars3Icon } from '@heroicons/react/24/solid'
+import {Link} from "react-router-dom";
 
 const navList = [
-    {label: 'Home', key: 'home'},
+    {label: 'Home', key: 'home', to: '/'},
     {label: 'Blockchain', key: 'blockchain'},
     {label: 'Tokens', key: 'tokens'},
     {label: 'NFTs', key: 'nfts'},
@@ -28,7 +29,7 @@ export const Navbar = () => {
         );
     }, []);
 
-    const renderNavItem = ({key, label}: { key: string, label: string }) => {
+    const renderNavItem = ({key, label, to}: { key: string, label: string, to?: string }) => {
         return <Typography
             key={key}
             as="li"
@@ -36,9 +37,7 @@ export const Navbar = () => {
             color="blue-gray"
             className="flex items-center gap-x-2 p-1 font-medium"
         >
-            <a href="#" className="flex items-center">
-                {label}
-            </a>
+            {to ? <Link to={to}>{label}</Link> : <a href="#">{label}</a>}
         </Typography>
     }
 

@@ -5,6 +5,7 @@ import {BlockWithTransactions, Utils} from "alchemy-sdk";
 import {formatHash} from "@/services/utils";
 import {Chip} from "@material-tailwind/react";
 import {useFetchLatestBlocks} from "@/hooks/useFetchBlocks";
+import {Link} from "react-router-dom";
 
 
 export const BlocksListCard = () => {
@@ -32,7 +33,7 @@ export const BlocksListCard = () => {
 
     const renderItems = (block: BlockWithTransactions): ReactNode => (
         <div className="flex justify-between items-center">
-            <h1>{block.number}</h1>
+            <h1><Link to={`/blocks/${block.number}`}>{block.number}</Link></h1>
             <div>
                 <p>Miner: {formatHash(block.miner)}</p>
                 <p>{block.transactions.length} txns</p>
